@@ -1,0 +1,13 @@
+Entries are to be imported with the 4square API. The following code gets all the checkins in json format and writes
+them to the file (access token has been obtained with a demo openid service).
+
+import foursquare
+client = foursquare.Foursquare(access_token='4HKACEL0CGRDZDDA3F2ABOQWDGARBYLXM3W2MRSF0BRMY5XY')
+c = client.users.all_checkins()
+f=file('checkins.txt','w')
+for checkin in c:
+        print checkin
+        f.write(str(checkin))
+f.close()
+
+

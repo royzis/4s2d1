@@ -43,10 +43,10 @@ def convert_file(filename):
 	for l in lines:
 		d = json.loads(l)
 		t = datetime.datetime.fromtimestamp(d['createdAt'])
-		text_str='4square check-in'
-		if 'shout' in d:
-			text_str=d['shout']
 		venue = d['venue']
+		text_str= venue['name'] + ' (4square check-in)'
+		if 'shout' in d:
+			text_str=d['shout'] + ' at ' + venue['name']
 		city = None
 		country = None
 		lat = None
